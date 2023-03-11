@@ -1,20 +1,30 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
+    <app-my-header></app-my-header>
 </ion-header>
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+    <ion-card class="card">
+        <ion-card-header class="card_title__font">
+            <ion-card-title>
+                <h1>Сервіси приклад №1</h1>
+            </ion-card-title>
+        </ion-card-header>
+        <ion-card-content class="card_body__font">
+            Створимо сервіс для роботи зі списком страв DishService
+
+            <ion-item class="card">
+                <ion-label position="floating" class="card_input">Назва страви</ion-label>
+                <ion-input class="card_input" type="text" id="a" value="Картопля фрі" #InputDish></ion-input>
+            </ion-item>
+
+            <ion-button expand="block" (click)="addItem(InputDish.value)">Додати страву</ion-button>
+            <h1>Перелік страв</h1>
+            <ion-grid>
+                <ion-row>
+                    <ion-col *ngFor="let rez of items">{{rez}}</ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-card-content>
+    </ion-card>
+
 </ion-content>
