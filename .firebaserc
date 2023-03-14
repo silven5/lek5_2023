@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "prim-lek5": {
+      "hosting": {
+        "app": [
+          "prim-lek5"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "prim-lek5"
+  }
+}

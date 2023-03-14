@@ -11,6 +11,10 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'home-dish',
+    loadChildren: () => import('./home-dish/home-dish.module').then( m => m.HomeDishPageModule)
+  },
 ];
 
 @NgModule({
