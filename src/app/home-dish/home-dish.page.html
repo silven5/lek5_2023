@@ -5,5 +5,63 @@
 </ion-header>
 
 <ion-content>
+  <ion-list class="ios list-ios hydrated card">
+    <ion-list-header class="ios hydrated">
+      <h2>Список блюд</h2>
+    </ion-list-header>
 
+    <ion-item *ngFor="let dish of Dishings;index as i" class="user-list">
+      <ion-label>
+        <h5><ion-icon name="fast-food-outline"></ion-icon>{{dish.name}}</h5>
+        <p><ion-icon name="cash-outline"></ion-icon> {{dish.price}}</p>
+      </ion-label>
+
+      <div class="item-note" item-end>
+        <button ion-button clear (click)=" editDishtoggle(i)">
+          <ion-icon name="create" style="zoom: 2"></ion-icon>
+        </button>
+        <button ion-button clear (click)="deleteDishing(i)">
+          <ion-icon name="trash" style="zoom: 2"></ion-icon>
+        </button>
+      </div>
+    </ion-item>
+  </ion-list>
+  <ion-card class="card" *ngIf="edit">
+    <ion-card-header class="card_title__font">
+      <ion-card-title><h2>Редагування страви</h2></ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content class="card_body__font">
+      <ion-item class="card">
+        <ion-label position="floating" class="card_input"
+          >Назва страви</ion-label
+        >
+        <ion-input
+          class="card_input"
+          type="text"
+          id="a"
+          value="{{dish.name}}"
+          #InputDish
+        ></ion-input>
+      </ion-item>
+      <ion-item class="card">
+        <ion-label position="floating" class="card_input"
+          >Вартість страви</ion-label
+        >
+        <ion-input
+          class="card_input"
+          type="text"
+          id="a"
+          value="{{dish.price}}"
+          #InputDishPrice
+        ></ion-input>
+      </ion-item>
+      <ion-button
+        expand="block"
+        (click)="update(InputDish.value,InputDishPrice.value)"
+        >Зберігти зміни</ion-button
+      >
+    </ion-card-content>
+  </ion-card>
 </ion-content>
+<ion-button routerLink="">На головну</ion-button>

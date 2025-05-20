@@ -9,15 +9,12 @@ import { HomeDishPage } from '../home-dish/home-dish.page';
 export class HomePage {
   component = HomeDishPage;
   items: string[] = [];
-  name: string = "";
-  constructor(private dishService: DishService) { }
+  name: string = '';
+  constructor(private dishService: DishService) {}
   addItem(name: any) {
-    if (typeof name === "string")
-      this.dishService.addData(name.toString());
+    if (typeof name === 'string') this.dishService.addData(name.toString());
   }
   ngOnInit() {
     this.items = this.dishService.getData();
-    console.log("Hello!");
   }
-
 }
